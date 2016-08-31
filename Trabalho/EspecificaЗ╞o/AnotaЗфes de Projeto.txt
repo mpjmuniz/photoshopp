@@ -1,0 +1,77 @@
+Especificações externas ao produto:
+
+Trabalho Individual
+
+Entrega: 25/11/2014
+
+Entregar código fonte Java organizado em um projeto NetBeans sem importações externas à Java SDK
+
+Enviar por e-mail para o endereço: laffernandes@gmail.com ou laffernandes@ic.uff.br até as 23:59 do dia 18.
+
+
+Será atribuída nota ZERO a trabalhos não entregues. 
+(A única exceção a esta regra é o caso a conta de e-mail de seu professor estar fora do ar)
+Trabalhos entregues além deste prazo serão considerados não entregues, mesmo que por questão de minutos.
+Será atribuída nota ZERO a trabalhos que não compilam.
+Será atribuída nota ZERO a trabalhos copiados.
+
+Especificações do produto:
+
+Criar um pacote de classes que definem operações em imagens
+Criar um aplicativo Java que utilize este pacote, utilizável pelo prompt de comando.
+(completo) Criar uma classe Operacoes que implemente a operação de complemento de imagens coloridas (espaço de cores RGB ou BGR)
+(completo) Implementar a operação de conversão de imagens coloridas (espaço de cores RGB ou BGR) em imagens em tons de cinza
+Implementar o operador de convolução discreta 2D
+Implementar a operação de detecção de bordas em um método estático da classe photoshopp.Operacoes
+Empacotar o aplicativo compilado no arquivo "trabalho.jar"
+Implementar os filtros:
+	complemento “arquivo de entrada” “arquivo de saída”
+	rgb-para-cinza “arquivo de entrada” “arquivo de saída”
+	filtro-gaussiano “arquivo de entrada” “arquivo de saída”
+	bordas limiar “arquivo de entrada” “arquivo de saída”
+	filtro-linear K w11 w12 ... w1K w21 w22 ... w2K ... wK1 wK2 ... wKK “caminho do arquivo de entrada” “caminho do arquivo de saída”
+
+Classes autorizadas à serem utilizadas no produto:
+
+javax.imageio.ImageIO
+java.awt.image.BufferedImage
+java.io.File
+
+Sobre o complemento de imagens coloridas:
+	O complemento é calculado utilizando a seguinte função:
+	Rc = 255 - R, Gc = 255 - G, Bc = 255 - B
+	
+	onde R, G e B são, respectivamente, as intensidades dos canais vermelho, verde e azul de um	dado pixel da imagem de entrada e Rc , Gc e Bc são, respectivamente, as intensidades dos canais	vermelho, verde e azul do pixel na imagem resultante. Aqui é assumido que os canais da imagem colorida assumem valores inteiros no intervalo [0,255].
+
+	A operação de complemento de imagens deverá ser implementada em um método estático da classe photoshopp.Operacoes. Ele deverá receber como único argumento a instância de BufferedImage que contém a imagem de entrada e retornar outra instância de BufferedImage que conterá a imagem de saída.
+
+Sobre a conversão de imagens coloridas em tons de cinza:
+	A conversão é feita utilizando a seguinte função:
+	I =  0.3 R + 0.59 G + 0.11 B
+	onde R, G e B são, respectivamente, as intensidades dos canais vermelho, verde e azul de um dado pixel da imagem de entrada, e I é a intensidade do tom de cinza resultante da conversão.
+
+	A operação de conversão de RGB para tons de cinza deverá ser implementada em um método estático da classe photochopp.Operacoes. Ele deverá receber como único argumento a instância de BufferedImage que contém a imagem de entrada e retornar outra instância de BufferedImage que conterá a imagem de saída.
+
+Sobre o operador de convolução discreta 2D:
+	*Ver explicação no enunciado
+
+	A operação de convolução discreta 2D deverá ser implementada em um método estático da classe photochopp.Operacoes. Ele deverá receber como argumento a instância de BufferedImage que contém a imagem de entrada e a instância de um objeto do tipo photochopp.Filtro, que especifica o filtro a ser aplicado. O método deve retornar uma nova instância de BufferedImage
+	que conterá a imagem de saída.
+
+Sobre a detecção de bordas:
+	A operação de detecção de bordas deverá ser implementada em um método estático da classe photoshopp.Operacoes. Ele deverá 
+	receber como argumentos a instância de BufferedImage que contém a imagem de entrada e o valor de limiar. O método deverá retornar outra instância de BufferedImage que conterá a imagem de saída.
+
+Lista de Afazeres do projeto:
+
+Arquitetura de arquivos:
+
+pacote photochopp
+	classe Operacoes
+	classe Filtro
+		classe FiltroGaussiano
+		classe FiltroSobelHorizontal
+		classe FiltroSobelVertical
+	(todas as classes do projeto)
+pacote app
+	classe (main) Trabalho

@@ -1,0 +1,3 @@
+27/10
+
+Saber se devo previnir tipos de cores BGR e RGB (pesquisar sobre cada tipo)
